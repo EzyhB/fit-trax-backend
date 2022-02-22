@@ -3,6 +3,7 @@
     {
       "source": "/api/(.*)",
       "headers": [
+        { "key": "s-maxage", "value": "0" },
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         {
           "key": "Access-Control-Allow-Origin",
