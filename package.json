@@ -1,0 +1,30 @@
+{
+  "name": "final-project-repo-npm-start",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "createTable": "node -r dotenv/config ./db/scripts/createTable.js",
+    "deleteTable": "node -r dotenv/config ./db/scripts/deleteTable.js",
+    "populateTable": "node -r dotenv/config ./db/scripts/populateTable.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "next": "12.1.0",
+    "nextjs-cors": "^2.1.0",
+    "pg": "^8.7.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.19",
+    "@types/pg": "^8.6.4",
+    "@types/react": "17.0.39",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0",
+    "typescript": "4.5.5"
+  }
+}
