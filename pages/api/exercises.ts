@@ -18,4 +18,13 @@ export default async function handler(
     const data = await query("SELECT * FROM exercises");
     res.json(data.rows);
   }
+
+  if (req.method === "POST"){
+    const el = req.body;
+    const data = await query(
+      "INSERT INTO exercises (exercise_name, sets, reps, rest_period, workout_ref) VALUES($1, $2, $3, $4, $5);",
+      [el.exercise_name, el.sets, el.reps, el.rest_period, el.workout_ref]
+    );
+    res.json(data.rows);
+  }
 }
