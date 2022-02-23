@@ -8,10 +8,10 @@ export default async function handler(
   res: NextApiResponse
 ) {
   await NextCors(req, res, {
-    // Options
+    
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
     origin: "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200, 
   });
 
   if (req.method === "GET") {
@@ -29,9 +29,9 @@ export default async function handler(
   }
 
   if (req.method === "DELETE") {
-    const data = await query("DELETE FROM exercises WHERE id = $1;", [
+    await query("DELETE FROM exercises WHERE id = $1;", [
       req.body.id,
     ]);
-    res.json({ message: "Exercise deleted" });
+    res.json({ message: `exercise with the id ${req.body.id} has been deleted`  });
   }
 }
