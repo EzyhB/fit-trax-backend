@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import query from "../../db";
 import NextCors from "nextjs-cors";
@@ -27,7 +26,7 @@ export default async function handler(
 
   if (req.method === "POST") {
     const elArray = req.body;
-    // use .forEach to loop through the array of objects
+
     elArray.forEach(async (el: exercise) => {
       const data = await query(
         "INSERT INTO exercises (exercise_name, sets, reps, rest_period, workout_ref) VALUES($1, $2, $3, $4, $5);",

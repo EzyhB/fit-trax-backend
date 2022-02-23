@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import query from "../../db";
 import NextCors from "nextjs-cors";
@@ -8,10 +7,9 @@ export default async function handler(
   res: NextApiResponse
 ) {
   await NextCors(req, res, {
-    // Options
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
     origin: "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200,
   });
 
   if (req.method === "GET") {
