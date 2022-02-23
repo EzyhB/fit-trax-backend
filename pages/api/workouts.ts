@@ -14,7 +14,7 @@ export default async function handler(
 
   if (req.method === "GET") {
     const data = await query("SELECT * FROM workouts");
-    res.json(data.rows);
+    return res.json(data.rows);
   }
 
   if (req.method === "POST") {
@@ -24,13 +24,13 @@ export default async function handler(
       [el.id, el.workout_name, el.workout_type, el.workout_difficulty]
     );
 
-    res.json(data.rows);
+    return res.json(data.rows);
   }
 
   if (req.method === "DELETE") {
     const data = await query("DELETE FROM workouts WHERE id = $1;", [
       req.body.id,
     ]);
-    res.json({ message: "Request deleted" });
+    return res.json({ message: "Request deleted" });
   }
 }

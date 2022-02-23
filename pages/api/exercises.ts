@@ -21,7 +21,7 @@ export default async function handler(
 
   if (req.method === "GET") {
     const data = await query("SELECT * FROM exercises");
-    res.json(data.rows);
+    return res.json(data.rows);
   }
 
   if (req.method === "POST") {
@@ -32,13 +32,13 @@ export default async function handler(
         "INSERT INTO exercises (exercise_name, sets, reps, rest_period, workout_ref) VALUES($1, $2, $3, $4, $5);",
         [el.exercise_name, el.sets, el.reps, el.rest_period, el.workout_ref]
       );
-      res.json(data.rows);
+      return res.json(data.rows);
     });
   }
 
   if (req.method === "DELETE") {
     await query("DELETE FROM exercises WHERE id = $1;", [req.body.id]);
-    res.json({
+    return res.json({
       message: `exercise with the id ${req.body.id} has been deleted`,
     });
   }
