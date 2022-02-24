@@ -8,7 +8,10 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false },
 });
 
-const query = async (text: string, params?: (string | number | boolean)[]) => {
+const query = async (
+  text: string,
+  params?: (string | number | boolean | string[])[]
+) => {
   return pool.query(text, params);
 };
 
