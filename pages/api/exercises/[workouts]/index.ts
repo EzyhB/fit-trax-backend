@@ -21,6 +21,6 @@ export default async function getWorkoutExercise(
       workouts,
     ]);
 
-    return res.json(data);
+    return res.json(data.rows);
   }
 }
