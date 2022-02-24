@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import query from "../../db";
+import query from "../../../db";
 import NextCors from "nextjs-cors";
 type exercise = {
   exercise_name: string;
