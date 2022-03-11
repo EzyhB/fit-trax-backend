@@ -13,7 +13,7 @@ export default async function handler(
   });
 
   if (req.method === "GET") {
-    const data = await query("SELECT * FROM workouts");
+    const data = await query("SELECT * FROM workouts ORDER BY time ASC");
     return res.json(data.rows);
   }
 

@@ -4,7 +4,7 @@ import query from "..";
 
 const createWorkoutTable = () => {
   return query(
-    "CREATE TABLE IF NOT EXISTS workouts (id TEXT, workout_name TEXT, workout_type TEXT, workout_difficulty TEXT);"
+    "CREATE TABLE IF NOT EXISTS workouts (id TEXT, time timestamp default CURRENT_TIMESTAMP, workout_name TEXT, workout_type TEXT, workout_difficulty TEXT);"
   );
 };
 
