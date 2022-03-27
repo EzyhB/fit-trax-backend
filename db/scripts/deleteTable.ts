@@ -9,5 +9,5 @@ const deleteExerciseTable = () => {
   query("DROP TABLE IF EXISTS exercises;");
 };
 
-deleteExerciseTable();
+// deleteExerciseTable();
 deleteWorkoutsTable();
